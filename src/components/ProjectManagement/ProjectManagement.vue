@@ -6,7 +6,9 @@
             <button @click="jump('/ProjectClose')">项目关闭</button>
         </div>
         <div name="Main" id="Main">
-            <router-view></router-view>
+            <transition mode="out-in">    <!--给route-view 添加动画 必须要使用transition 标签包裹 并设置模式先出后进-->>
+                <router-view></router-view>
+            </transition>
         </div>
     </div>
 </template>
@@ -26,7 +28,7 @@ export default {
 
 <style scoped>
     #Main {
-        background-color: forestgreen;
+        background-color: white;
         width: 100%;
         height: 600px;
     }
@@ -45,5 +47,13 @@ export default {
     }
     #Nav button:focus{
         background-color: lightblue;
+    }
+    /*路由切换过渡*/
+    .v-enter,.v-leave-to{
+        opacity: 0;
+        /*transform: translate(0,200px)*/
+    }
+    .v-enter-active,.v-leave-active{
+        transition: all .2s ease-in-out;
     }
 </style>

@@ -10,6 +10,9 @@
         </div>
         <div name="Main" id="Main">
             预测执行
+            <transition mode="out-in">    <!--给route-view 添加动画 必须要使用transition 标签包裹 并设置模式先出后进-->>
+                <router-view></router-view>
+            </transition>
         </div>
     </div>
 </template>
@@ -41,5 +44,13 @@ export default {
     }
     #Nav button:focus{
         background-color: lightblue;
+    }
+    /*路由切换过渡*/
+    .v-enter,.v-leave-to{
+        opacity: 0;
+        /*transform: translate(0,200px)*/
+    }
+    .v-enter-active,.v-leave-active{
+        transition: all .2s ease-in-out;
     }
 </style>
