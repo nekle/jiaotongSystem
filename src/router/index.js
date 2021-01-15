@@ -14,6 +14,9 @@ import VarDisplay from '@/components/NetEdition/VarDisplay';
 
 // 引入路网设置的子组件
 import PlanSettings from '@/components/PlanSettings/PlanSettings';
+import ResidentPoints from '@/components/PlanSettings/ResidentPoints';
+import PublicVehicleSources from '@/components/PlanSettings/PublicVehicleSources';
+import RestrictSector from '@/components/PlanSettings/RestrictSector';
 // 引入仿真运行的子组件
 import SimRunning from '@/components/SimRunning/SimRunning';
 // 引入帮助的子组件
@@ -72,7 +75,24 @@ export default new Router({
     {
       path: '/PlanSettings',
       name: 'PlanSettings',
-      component: PlanSettings
+      component: PlanSettings,
+      children: [
+        {
+          path: '/ResidentPoints',
+          name: 'ResidentPoints',
+          component: ResidentPoints,
+        },
+        {
+          path: '/PublicVehicleSources',
+          name: 'PublicVehicleSources',
+          component: PublicVehicleSources
+        },
+        {
+          path: '/RestrictSector',
+          name: 'RestrictSector',
+          component: RestrictSector
+        }
+      ]
     },
     {
       path: '/SimRunning',
