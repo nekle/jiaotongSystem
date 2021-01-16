@@ -4,8 +4,8 @@
             <button @click="jump('/ResidentPoints')">居民点</button>
             <button @click="jump('/PublicVehicleSources')">公共车辆源</button>
             <button @click="jump('/RestrictSector')">限速路段</button>
-            <button>安置点</button>
-            <button>其他设置</button>
+            <button @click="jump('/SettlementCamp')">安置点</button>
+            <button @click="jump('/OtherSettings')">其他设置</button>
             <button :disabled="changeStatus" @click="submitChange">提交修改</button>
         </div>
         <div name="Main" id="Main">

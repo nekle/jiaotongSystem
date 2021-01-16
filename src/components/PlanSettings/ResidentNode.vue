@@ -56,6 +56,7 @@ export default {
     .inputBox {
         width: 150px;
         height: 20px;
+        margin-top: 2px;
     }
     span {
         display: inline-block;

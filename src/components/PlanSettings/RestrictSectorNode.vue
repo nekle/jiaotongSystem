@@ -3,13 +3,13 @@
         <span>路线 </span> <span style="margin-left: 7.5em">车道 限速</span>
         <div class="itemBox"><span>节点：1--->节点2</span>
             <select v-model="chosenLane">
-                <option v-for="lane in lanes" v-bind:key="lane.id">{{lane.id}}}</option>
+                <option v-for="lane in lanes" v-bind:key="lane.id">{{lane.id}}</option>
             </select>
             <input v-on:input="change()" type="text" class="inputBox">
         </div>
         <div class="itemBox"><span>节点：3--->节点4</span>
             <select v-model="chosenLane">
-                <option v-for="lane in lanes" v-bind:key="lane.id">{{lane.id}}}</option>
+                <option v-for="lane in lanes" v-bind:key="lane.id">{{lane.id}}</option>
             </select>
             <input v-on:input="change()" type="text" class="inputBox">
         </div>
@@ -69,6 +69,7 @@ export default {
     .inputBox {
         width: 60px;
         height: 20px;
+        margin-top: 2px;
     }
     span {
         display: inline-block;

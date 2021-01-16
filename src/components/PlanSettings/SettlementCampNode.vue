@@ -1,20 +1,26 @@
 <template>
     <div id="Container" @click="click($event)" @mouseleave="leave($event)" v-bind:class="[{active:isActive}]">
-        <span>节点</span>
-        <div class="itemBox"><span>名称：</span><input v-on:input="change()"  type="text" class="inputBox"></div>
-        <div class="itemBox"><span>车辆数量:</span><input v-on:input="change()" type="text" class="inputBox"></div>
-        <div class="itemBox"><span>发车时间:</span><input v-on:input="change()" type="text" class="inputBox"></div>
-        <div class="itemBox"><span>发车时间间隔:</span><input v-on:input="change()" type="text" class="inputBox"></div>
+        <div class="itemBox"><span>节点</span>
+            <span>名称：</span><input v-on:input="change()" type="text" class="inputBox">
+            <span>容量：</span><input v-on:input="change()" type="text" class="inputBox">
+        </div>
     </div>
 </template>
 
 <script>
 export default {
-  name: 'PublicVehicleSourcesNode',
+  name: 'RestrictSectorNode',
   data() {
     return{
       isActive: false,
-      changeStatus:0
+      changeStatus:0,
+      lanes:[
+        {id:1},
+        {id:2},
+        {id:3},
+        {id:4},
+      ],
+      chosenLane:''
     }
   },
   methods:{
@@ -41,7 +47,7 @@ export default {
     #Container {
         display: flex;
         flex-direction: column;
-        height: 188px;
+        height: 100px;
         border: 1px solid black;
         margin-top: 5px;
     }
@@ -52,13 +58,13 @@ export default {
         background-color: white;
     }
     .inputBox {
-        width: 150px;
+        width: 120px;
         height: 20px;
         margin-top: 2px;
     }
     span {
         display: inline-block;
-        width: 100px;
+        width: 150px;
         height: 20px;
     }
     .itemBox {

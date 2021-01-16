@@ -17,6 +17,8 @@ import PlanSettings from '@/components/PlanSettings/PlanSettings';
 import ResidentPoints from '@/components/PlanSettings/ResidentPoints';
 import PublicVehicleSources from '@/components/PlanSettings/PublicVehicleSources';
 import RestrictSector from '@/components/PlanSettings/RestrictSector';
+import SettlementCamp from '@/components/PlanSettings/SettlementCamp';
+import OtherSettings from '@/components/PlanSettings/OtherSettings';
 // 引入仿真运行的子组件
 import SimRunning from '@/components/SimRunning/SimRunning';
 // 引入帮助的子组件
@@ -91,6 +93,16 @@ export default new Router({
           path: '/RestrictSector',
           name: 'RestrictSector',
           component: RestrictSector
+        },
+        {
+          path: '/SettlementCamp',
+          name: 'SettlementCamp',
+          component: SettlementCamp
+        },
+        {
+          path:  '/OtherSettings',
+          name:  'OtherSettings',
+          component: OtherSettings
         }
       ]
     },
