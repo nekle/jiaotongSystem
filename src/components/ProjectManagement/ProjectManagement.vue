@@ -1,9 +1,9 @@
 <template>
     <div name="Container" id="Container">
         <div name="Nav" id="Nav">
-            <button @click="jump('/ProjectCreation')">项目新建</button>
-            <button @click="jump('/ProjectOpen')">项目打开</button>
-            <button @click="jump('/ProjectClose')">项目关闭</button>
+            <button class="button button-3d button-royal" @click="jump('/ProjectCreation')">项目新建</button>
+            <button class="button button-3d button-royal" @click="jump('/ProjectOpen')">项目打开</button>
+            <button class="button button-3d button-royal" @click="jump('/ProjectClose')">项目关闭</button>
         </div>
         <div name="Main" id="Main">
             <transition mode="out-in">    <!--给route-view 添加动画 必须要使用transition 标签包裹 并设置模式先出后进-->>

@@ -1,11 +1,11 @@
 <template>
     <div>
         <div name="navigation" id="navigation">
-            <button @click="jump('/ProjectManagement')">项目管理</button>
-            <button @click="jump('/NetEdition')">路网编辑</button>
-            <button @click="jump('/PlanSettings')">方案设置</button>
-            <button @click="jump('/SimRunning')">预测执行</button>
-            <button @click="jump('/Help')">帮助</button>
+            <button class="button button-glow button-rounded button-royal" @click="jump('/ProjectManagement')">项目管理</button>
+            <button class="button button-glow button-rounded button-royal" @click="jump('/NetEdition')">路网编辑</button>
+            <button class="button button-glow button-rounded button-royal" @click="jump('/PlanSettings')">方案设置</button>
+            <button class="button button-glow button-rounded button-royal" @click="jump('/SimRunning')">预测执行</button>
+            <button class="button button-glow button-rounded button-royal" @click="jump('/Help')">帮助</button>
         </div>
         <transition mode="out-in">    <!--给route-view 添加动画 必须要使用transition 标签包裹 并设置模式先出后进-->>
             <router-view></router-view>

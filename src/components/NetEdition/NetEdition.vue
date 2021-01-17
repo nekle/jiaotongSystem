@@ -1,8 +1,8 @@
 <template>
     <div name="Container" id="Container">
         <div name="Nav" id="Nav">
-            <button @click="jump('/VarEdition')">参数修改</button>
-            <button @click="jump('/VarDisplay')">参数显示</button>
+            <button class="button button-3d button-royal" @click="jump('/VarEdition')">参数修改</button>
+            <button class="button button-3d button-royal" @click="jump('/VarDisplay')">参数显示</button>
         </div>
         <div name="Main" id="Main">
             路网编辑

@@ -1,9 +1,11 @@
 <template>
-    <div>
-        <div>
-            <input type="button" title="搜索">
-            <input type="text" placeholder="请输入项目名称" v-model="search">
-            <span @click="clearSearch">x</span>
+    <div id="Container">
+        <div id="SearchContainer">
+            <button class="button button-glow button-rounded button-royal button-small">搜索</button>
+            <div id="InputContainer">
+                <input type="text" placeholder="请输入项目名称" v-model="search" class="InputBox">
+                <span @click="clearSearch" id="clearSpan">x</span>
+            </div>
         </div>
         <div>
             项目栏
@@ -38,5 +40,21 @@ export default {
 </script>
 
 <style scoped>
-
+    #Container {
+        display: flex;
+        flex-direction: column;
+    }
+    #SearchContainer {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    .InputBox {
+        width: 200px;
+        height: 25px;
+    }
+    #clearSpan {
+        position: relative;
+        left: -20px;
+    }
 </style>

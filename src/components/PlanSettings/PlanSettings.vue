@@ -1,12 +1,12 @@
 <template>
     <div name="Container" id="Container">
         <div name="Nav" id="Nav">
-            <button @click="jump('/ResidentPoints')">居民点</button>
-            <button @click="jump('/PublicVehicleSources')">公共车辆源</button>
-            <button @click="jump('/RestrictSector')">限速路段</button>
-            <button @click="jump('/SettlementCamp')">安置点</button>
-            <button @click="jump('/OtherSettings')">其他设置</button>
-            <button :disabled="changeStatus" @click="submitChange">提交修改</button>
+            <button class="button button-3d button-royal" @click="jump('/ResidentPoints')">居民点</button>
+            <button class="button button-3d button-royal" @click="jump('/PublicVehicleSources')">公共车辆源</button>
+            <button class="button button-3d button-royal" @click="jump('/RestrictSector')">限速路段</button>
+            <button class="button button-3d button-royal" @click="jump('/SettlementCamp')">安置点</button>
+            <button class="button button-3d button-royal" @click="jump('/OtherSettings')">其他设置</button>
+            <button class="button button-3d button-royal" :disabled="changeStatus" @click="submitChange">提交修改</button>
         </div>
         <div name="Main" id="Main">
             <div id="ListArea">

@@ -1,12 +1,12 @@
 <template>
     <div name="Container" id="Container">
         <div name="Nav" id="Nav">
-            <button>仿真执行</button>
-            <button>车辆时间</button>
-            <button>集合等待</button>
-            <button>撤离时间</button>
-            <button>集体统计</button>
-            <button>计量统计</button>
+            <button class="button button-3d button-royal">仿真执行</button>
+            <button class="button button-3d button-royal">车辆时间</button>
+            <button class="button button-3d button-royal">集合等待</button>
+            <button class="button button-3d button-royal">撤离时间</button>
+            <button class="button button-3d button-royal">集体统计</button>
+            <button class="button button-3d button-royal">计量统计</button>
         </div>
         <div name="Main" id="Main">
             预测执行
