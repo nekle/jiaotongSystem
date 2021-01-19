@@ -50,7 +50,6 @@ export default {
 
 <style scoped>
     #Main {
-        background-color: forestgreen;
         width: 100%;
         height: 600px;
         display: flex;
@@ -84,13 +83,11 @@ export default {
     #ListArea {
         width: 320px;
         height: 100%;
-        background-color: red;
         margin-left: 100px;
     }
     #PointGraph {
         width: 880px;
         height: 100%;
-        background-color: green;
         margin-left: 200px;
     }
 </style>
