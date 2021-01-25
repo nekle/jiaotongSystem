@@ -1,7 +1,7 @@
 <template>
     <div id="ContainerBox">
         <div id="SimStartTime">
-            <TimePicker/>
+            <TimePicker v-on:changeEvent="change"/>
         </div>
         <div id="VehicleCapacity" class="FactorBox">
             <div>
@@ -9,35 +9,35 @@
             </div>
             <div>
                 <span>公共车容量</span>
-                <input type="text">
+                <input type="text" v-on:input="change">
             </div>
             <div>
                 <span>小汽车容量</span>
-                <input type="text">
+                <input type="text" v-on:input="change">
             </div>
             <div>
                 <span>货车容量</span>
-                <input type="text">
+                <input type="text" v-on:input="change">
             </div>
             <div>
                 <span>摩托车车容量</span>
-                <input type="text">
+                <input type="text" v-on:input="change">
             </div>
         </div>
         <div id="EvnFactors" class="FactorBox">
             <div id="WeatherFactor" >
                 <div>
                     <div><span>天气因素</span></div>
-                    <input type="radio" id="sunny" value="sunny" v-model="picked.weather">
+                    <input type="radio" id="sunny" value="sunny" v-model="picked.weather" v-on:change="change">
                     <label for="sunny">晴天</label>
                     <br>
-                    <input type="radio" id="foggy" value="foggy" v-model="picked.weather">
+                    <input type="radio" id="foggy" value="foggy" v-model="picked.weather" v-on:change="change">
                     <label for="foggy">雾天</label>
                     <br>
-                    <input type="radio" id="rainy" value="rainy" v-model="picked.weather">
+                    <input type="radio" id="rainy" value="rainy" v-model="picked.weather" v-on:change="change">
                     <label for="rainy">雨天</label>
                     <br>
-                    <input type="radio" id="snowy" value="snowy" v-model="picked.weather">
+                    <input type="radio" id="snowy" value="snowy" v-model="picked.weather" v-on:change="change">
                     <label for="snowy">雪天</label>
                     <br>
                 </div>
@@ -45,16 +45,16 @@
             <div id="SeasonFactor" >
                 <div>
                     <div><span>季节因素</span></div>
-                    <input type="radio" id="spring" value="spring" v-model="picked.season">
+                    <input type="radio" id="spring" value="spring" v-model="picked.season" v-on:change="change">
                     <label for="spring">春天</label>
                     <br>
-                    <input type="radio" id="summer" value="summer" v-model="picked.season">
+                    <input type="radio" id="summer" value="summer" v-model="picked.season" v-on:change="change">
                     <label for="summer">夏天</label>
                     <br>
-                    <input type="radio" id="fall" value="fall" v-model="picked.season">
+                    <input type="radio" id="fall" value="fall" v-model="picked.season" v-on:change="change">
                     <label for="fall">秋天</label>
                     <br>
-                    <input type="radio" id="winter" value="winter" v-model="picked.season">
+                    <input type="radio" id="winter" value="winter" v-model="picked.season" v-on:change="change">
                     <label for="winter">冬天</label>
                     <br>
                 </div>
@@ -62,13 +62,13 @@
             <div id="RoadFactor" >
                 <div>
                     <div><span>路面因素</span></div>
-                    <input type="radio" id="dry" value="dry" v-model="picked.ground">
+                    <input type="radio" id="dry" value="dry" v-model="picked.ground" v-on:change="change">
                     <label for="dry">路面干燥</label>
                     <br>
-                    <input type="radio" id="slippery" value="slippery" v-model="picked.ground">
+                    <input type="radio" id="slippery" value="slippery" v-model="picked.ground" v-on:change="change">
                     <label for="slippery">路面湿滑</label>
                     <br>
-                    <input type="radio" id="snow" value="snow" v-model="picked.ground">
+                    <input type="radio" id="snow" value="snow" v-model="picked.ground" v-on:change="change">
                     <label for="snow">有积雪</label>
                     <br>
                 </div>
@@ -76,48 +76,48 @@
         </div>
         <div id="PatternFactor" class="FactorBox">
             <div>
-                <input type="radio" id="avg" value="avg" v-model="lawModelPicked.picked" v-on:click="pick('id1')">
+                <input type="radio" id="avg" value="avg" v-model="lawModelPicked.picked" v-on:click="pick('id1')" v-on:change="change">
                 <label for="avg">平均分布</label>
                 <br>
-                <input type="radio" id="zhengtai" value="zhengtai" v-model="lawModelPicked.picked" v-on:click="pick('id2')">
+                <input type="radio" id="zhengtai" value="zhengtai" v-model="lawModelPicked.picked" v-on:click="pick('id2')" v-on:change="change">
                 <label for="zhengtai">正态分布</label>
                 <br>
-                <input type="radio" id="duishu" value="duishu" v-model="lawModelPicked.picked" v-on:click="pick('id3')">
+                <input type="radio" id="duishu" value="duishu" v-model="lawModelPicked.picked" v-on:click="pick('id3')" v-on:change="change">
                 <label for="duishu">对数正太分布</label>
                 <br>
-                <input type="radio" id="bosong" value="bosong" v-model="lawModelPicked.picked" v-on:click="pick('id4')">
+                <input type="radio" id="bosong" value="bosong" v-model="lawModelPicked.picked" v-on:click="pick('id4')" v-on:change="change">
                 <label for="bosong">泊松分布</label>
                 <br>
-                <input type="radio" id="zhishu" value="zhishu" v-model="lawModelPicked.picked" v-on:click="pick('id5')">
+                <input type="radio" id="zhishu" value="zhishu" v-model="lawModelPicked.picked" v-on:click="pick('id5')" v-on:change="change">
                 <label for="zhishu">指数分布</label>
                 <br>
             </div>
             <div id="VarBox1">
                 <label for="a">a</label>
-                <input type="text" id="a" value="a" v-model="lawModelPicked.a" :disabled="disabledRadio.id1">
+                <input type="text" id="a" value="a" v-model="lawModelPicked.a" :disabled="disabledRadio.id1" v-on:input="change">
                 <br>
                 <label for="mu1">mu</label>
-                <input type="text" id="mu1" value="mu1" v-model="lawModelPicked.mu1" :disabled="disabledRadio.id2">
+                <input type="text" id="mu1" value="mu1" v-model="lawModelPicked.mu1" :disabled="disabledRadio.id2" v-on:input="change">
                 <br>
                 <label for="mu2">mu</label>
-                <input type="text" id="mu2" value="mu2" v-model="lawModelPicked.mu2" :disabled="disabledRadio.id3">
+                <input type="text" id="mu2" value="mu2" v-model="lawModelPicked.mu2" :disabled="disabledRadio.id3" v-on:input="change">
                 <br>
                 <label for="lemda1">lemda</label>
-                <input type="text" id="lemda1" value="lemda1" v-model="lawModelPicked.lemda1" :disabled="disabledRadio.id4">
+                <input type="text" id="lemda1" value="lemda1" v-model="lawModelPicked.lemda1" :disabled="disabledRadio.id4" v-on:input="change">
                 <br>
                 <label for="lemda2">lemda</label>
-                <input type="text" id="lemda2" value="lemda2" v-model="lawModelPicked.lemda2" :disabled="disabledRadio.id5">
+                <input type="text" id="lemda2" value="lemda2" v-model="lawModelPicked.lemda2" :disabled="disabledRadio.id5" v-on:input="change">
                 <br>
             </div>
             <div id="VarBox2">
                 <label for="b">b</label>
-                <input type="text" id="b" value="b" v-model="lawModelPicked.b" :disabled="disabledRadio.id1">
+                <input type="text" id="b" value="b" v-model="lawModelPicked.b" :disabled="disabledRadio.id1" v-on:input="change">
                 <br>
                 <label for="sigma1">sigma</label>
-                <input type="text" id="sigma1" value="sigma1" v-model="lawModelPicked.sigma1" :disabled="disabledRadio.id2">
+                <input type="text" id="sigma1" value="sigma1" v-model="lawModelPicked.sigma1" :disabled="disabledRadio.id2" v-on:input="change">
                 <br>
                 <label for="sigma2">sigma</label>
-                <input type="text" id="sigma2" value="sigma2" v-model="lawModelPicked.sigma2" :disabled="disabledRadio.id3">
+                <input type="text" id="sigma2" value="sigma2" v-model="lawModelPicked.sigma2" :disabled="disabledRadio.id3" v-on:input="change">
                 <br>
             </div>
         </div>
@@ -160,12 +160,11 @@ export default {
     }
   },
   methods:{
-    // 收到子组件的changeStatus 向父组件传递状态
-    change(changeStatus) {
-      this.changeStatus = changeStatus;
-      this.$emit('changeEvent',this.changeStatus);
+    // 发生修改动作
+    change(){
+      this.changeStatus = 1;
+      this.$emit('changeEvent', this.changeStatus)
       this.changeStatus = 0;
-      // console.log(2)
     },
     // 设置对应输入框是否可以进行输入
     pick(choice){

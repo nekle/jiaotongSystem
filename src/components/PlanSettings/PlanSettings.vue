@@ -15,15 +15,19 @@
                 </transition>
             </div>
             <div id="PointGraph">
-                点图
+                <MapRoad></MapRoad>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+import MapRoad from '@/components/Help/MapRoad';
 export default {
   name: 'PlanSettings',
+  components:{
+    MapRoad
+  },
   data(){
     return{
         changeStatus: 0
@@ -87,7 +91,7 @@ export default {
     }
     #PointGraph {
         width: 880px;
-        height: 100%;
+        height: 600px;
         margin-left: 200px;
     }
 </style>
