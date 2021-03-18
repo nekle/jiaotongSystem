@@ -1,33 +1,26 @@
 <template>
     <div>
         <div name="Main" id="Main">
-<!--            <RoadMap></RoadMap>-->
-<!--            <xxx></xxx>-->
-<!--            <TMap></TMap>-->
-            <JSMap></JSMap>
-<!--            <XDHMap  ></XDHMap>-->
-            <MapRoad></MapRoad>
+<!--           <TMap></TMap>-->
+<!--            <SuperMap></SuperMap>-->
+<!--            <BMap></BMap>-->
         </div>
-<!--        <img src="../../assets/wpt/tiles/0/0/0.png" alt="">-->
     </div>
 </template>
 
 <script>
-// import RoadMap from '@/components/Help/RoadMap';
-import MapRoad from '@/components/Help/MapRoad';
-// import xxx from '@/components/Help/xxx.vue'
+// import SuperMap from '@/components/Help/SuperMap';
+// import MapRoad from '@/components/Help/MapRoad';
 // import TMap from '@/components/Help/TMap';
-import JSMap from '@/components/Help/JSMap';
-// import XDHMap from '@/components/Help/XDHMap';
+// import BMap from '@/components/Help/BMap';
 export default {
   name: 'Help',
   components:{
-    // RoadMap,
-    // xxx
-    MapRoad,
-    // TMap
-    JSMap
-    // XDHMap
+    // SuperMap
+    // MapRoad,
+    // TMap,
+    // SuperMap,
+    // BMap
   }
 }
 </script>

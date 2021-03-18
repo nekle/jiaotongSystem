@@ -27,6 +27,13 @@ export default {
 </script>
 
 <style scoped>
+    *{
+        text-decoration: none;
+        margin: 0;
+        border: 0;
+        box-sizing: border-box;
+        font-family: Helvetica;
+    }
     #navigation {
         background-color: gray;
         width: auto;

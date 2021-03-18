@@ -1,9 +1,9 @@
 <template>
     <div id="Container">
         <picture>
-            <source media="(min-width: 650px)" srcset="demo1.jpg">
-            <source media="(min-width: 465px)" srcset="demo2.jpg">
-            <img :src=imgURL>
+<!--            <source media="(min-width: 650px)" srcset="demo1.jpg">-->
+<!--            <source media="(min-width: 465px)" srcset="demo2.jpg">-->
+            <img :src=this.imgURL>
         </picture>
         <div>
             <div>路   径:{{path}}</div>
@@ -14,12 +14,12 @@
 </template>
 
 <script>
-
+import alt from "@/assets/alt.png"
 export default {
   name: 'ProjectInfo',
   data(){
     return{
-        imgURL:require("../../assets/alt.png"),
+        imgURL:alt,
         path:'123',
         status:'456',
         time:'789'

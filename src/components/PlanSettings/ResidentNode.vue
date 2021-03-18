@@ -1,18 +1,26 @@
 <template>
     <div id="Container" @click="click($event)" @mouseleave="leave($event)" v-bind:class="[{active:isActive}]">
         <span>节点</span>
-        <div class="itemBox"><span>名称：</span><input v-on:input="change()"  type="text" class="inputBox"></div>
-        <div class="itemBox"><span>总人数：</span><input v-on:input="change()" type="text" class="inputBox"></div>
-        <div class="itemBox"><span>小汽车数:</span><input v-on:input="change()" type="text" class="inputBox"></div>
-        <div class="itemBox"><span>货车数：</span><input v-on:input="change()" type="text" class="inputBox"></div>
-        <div class="itemBox"><span>摩托车数：</span><input v-on:input="change()" type="text" class="inputBox"></div>
-        <div class="itemBox"><span>乘公车人数：</span><input v-on:input="change()" type="text" class="inputBox" readonly="readonly"></div>
+        <div class="itemBox"><span>名称：</span><input v-on:input="change()"  type="text" class="inputBox" :value="name"></div>
+        <div class="itemBox"><span>总人数：</span><input v-on:input="change()" type="text" class="inputBox" :value="passengerSum"></div>
+        <div class="itemBox"><span>小汽车数:</span><input v-on:input="change()" type="text" class="inputBox" :value="carSum"></div>
+        <div class="itemBox"><span>货车数：</span><input v-on:input="change()" type="text" class="inputBox" :value="truckSum"></div>
+        <div class="itemBox"><span>摩托车数：</span><input v-on:input="change()" type="text" class="inputBox" :value="motorSum"></div>
+        <div class="itemBox"><span>乘公车人数：</span><input v-on:input="change()" type="text" class="inputBox" readonly="readonly" :value="publicSum"></div>
     </div>
 </template>
 
 <script>
 export default {
   name: 'ResidentNode',
+  props:{
+    name:String,
+    passengerSum:Number,
+    carSum:Number,
+    truckSum:Number,
+    motorSum:Number,
+    publicSum:Number,
+  },
   data() {
     return{
       isActive: false,

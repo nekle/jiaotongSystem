@@ -1,8 +1,8 @@
 <template>
     <div id="Container" @click="click($event)" @mouseleave="leave($event)" v-bind:class="[{active:isActive}]">
         <div class="itemBox"><span>节点</span>
-            <span>名称：</span><input v-on:input="change()" type="text" class="inputBox">
-            <span>容量：</span><input v-on:input="change()" type="text" class="inputBox">
+            <span>名称：</span><input v-on:input="change()" type="text" class="inputBox" :value="name">
+            <span>容量：</span><input v-on:input="change()" type="text" class="inputBox" :value="capacity">
         </div>
     </div>
 </template>
@@ -10,6 +10,10 @@
 <script>
 export default {
   name: 'RestrictSectorNode',
+  props:{
+    name:String,
+    capacity:Number,
+  },
   data() {
     return{
       isActive: false,

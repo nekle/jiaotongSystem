@@ -15,22 +15,26 @@
                 </transition>
             </div>
             <div id="PointGraph">
-                <MapRoad></MapRoad>
+                <TMap></TMap>
             </div>
         </div>
     </div>
 </template>
 
 <script>
-import MapRoad from '@/components/Help/MapRoad';
+// import SuperMap from '@/components/Help/SuperMap';
+import TMap from '@/components/Help/TMap';
+
 export default {
   name: 'PlanSettings',
   components:{
-    MapRoad
+    // SuperMap
+    TMap,
   },
   data(){
     return{
-        changeStatus: 0
+        changeStatus: 0,
+      crosses:[],
     }
   },
   methods:{
@@ -47,7 +51,9 @@ export default {
     },
     submitChange(){
       this.changeStatus = true;
-    }
+    },
+  },
+  mounted(){
   }
 }
 </script>
@@ -90,8 +96,8 @@ export default {
         margin-left: 100px;
     }
     #PointGraph {
-        width: 880px;
-        height: 600px;
-        margin-left: 200px;
+        width: 1200px;
+        height: 500px;
+        margin-left: 50px;
     }
 </style>

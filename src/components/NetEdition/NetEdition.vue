@@ -28,7 +28,7 @@ export default {
 
 <style scoped>
     #Main {
-        background-color: forestgreen;
+        /*background-color: forestgreen;*/
         width: 100%;
         height: 600px;
     }

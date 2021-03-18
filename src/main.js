@@ -6,9 +6,18 @@ import '@/assets/Button.css'
 Vue.config.productionTip = false
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
+import Vuex from 'vuex'
+//引入elementui
+import ElementUI from 'element-ui'
+Vue.use(ElementUI)
+
+Vue.use(Vuex)
 Vue.use(L);
 new Vue({
   render: h => h(App),
   router,
 }).$mount('#app')
+
+
+
 

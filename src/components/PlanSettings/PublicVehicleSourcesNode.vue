@@ -1,16 +1,22 @@
 <template>
     <div id="Container" @click="click($event)" @mouseleave="leave($event)" v-bind:class="[{active:isActive}]">
         <span>节点</span>
-        <div class="itemBox"><span>名称：</span><input v-on:input="change()"  type="text" class="inputBox"></div>
-        <div class="itemBox"><span>车辆数量:</span><input v-on:input="change()" type="text" class="inputBox"></div>
-        <div class="itemBox"><span>发车时间:</span><input v-on:input="change()" type="text" class="inputBox"></div>
-        <div class="itemBox"><span>发车时间间隔:</span><input v-on:input="change()" type="text" class="inputBox"></div>
+        <div class="itemBox"><span>名称：</span><input v-on:input="change()"  type="text" class="inputBox" :value="name"></div>
+        <div class="itemBox"><span>车辆数量:</span><input v-on:input="change()" type="text" class="inputBox" :value="vNumber"></div>
+        <div class="itemBox"><span>发车时间:</span><input v-on:input="change()" type="text" class="inputBox" :value="startTime"></div>
+        <div class="itemBox"><span>发车时间间隔:</span><input v-on:input="change()" type="text" class="inputBox" :value="startInterval"></div>
     </div>
 </template>
 
 <script>
 export default {
   name: 'PublicVehicleSourcesNode',
+  props:{
+    name:String,
+    vNumber:Number,
+    startTime:Number,
+    startInterval:Number
+  },
   data() {
     return{
       isActive: false,
