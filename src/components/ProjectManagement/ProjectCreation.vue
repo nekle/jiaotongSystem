@@ -49,12 +49,14 @@ export default {
 
 <style scoped>
     * {
-        text-decoration: none;
-        border: 0;
-        margin: 0;
+        font-size: .14rem;
+        margin:0;
+        padding:0;
         box-sizing: border-box;
         font-family: "Helvetica";
+        text-decoration: none;
     }
+
     #Container {
         display: flex;
         flex-direction: column;
@@ -70,7 +72,7 @@ export default {
         flex-direction: row;
         margin-top: 10px;
     }
-    
+
     #Container div .inputBox label{
         background-color: rgba(123, 114, 233,.6);
         cursor: pointer;
@@ -78,8 +80,8 @@ export default {
         padding: 5px;
         box-shadow:-5px 5px 3px rgba(123, 114, 233,.4) ;
     }
-    
-    
+
+
     #Container input {
         width: 500px;
         height: 25px;

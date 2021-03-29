@@ -3,9 +3,13 @@
         <div id="mapContainer"></div>
     </div>
 </template>
-<script charset="utf-8"
-        src="https://map.qq.com/api/gljs?v=1.exp&key=OB4BZ-D4W3U-B7VVO-4PJWW-6TKDJ-WPB77"></script>
-<script src="https://map.qq.com/api/gljs?v=1.exp&key=OB4BZ-D4W3U-B7VVO-4PJWW-6TKDJ-WPB77&libraries=visualization"></script>
+<script
+        charset="utf-8"
+        src="https://map.qq.com/api/gljs?v=1.exp&key=OB4BZ-D4W3U-B7VVO-4PJWW-6TKDJ-WPB77">
+</script>
+<script
+        src="https://map.qq.com/api/gljs?v=1.exp&key=OB4BZ-D4W3U-B7VVO-4PJWW-6TKDJ-WPB77&libraries=visualization">
+</script>
 <script>
 import myHttp from '../../../static/http';
 import {MyMarker} from '../../../static/MyMarker';
@@ -73,7 +77,7 @@ export default {
   },
   methods:{
     drawLine(crosses){
-      console.log(this.lines)
+      // console.log(this.lines)
       for (let i=0;i<this.links.length;i=i+2){
         let latLngs =[]
         let c1 =this.links[i].cross1-1
@@ -103,7 +107,7 @@ export default {
             'lineCap': 'butt' //线端头方式
           }),
           'style_red': new TMap.PolylineStyle({
-            'color': '#CC0000', //线填充色
+            'color': 'rgba(255,0,50,.6)', //线填充色
             // 'width': 6, //折线宽度
             // 'borderWidth': 5, //边线宽度
             // 'borderColor': '#CCC', //边线颜色
@@ -168,6 +172,7 @@ export default {
         prompt(e.latLng.toString())
       })
     },
+      // gps坐标转化成腾讯地图坐标
     transformation (crosses) {
       let tempCrosses=[]
       for (let i =1;i<=crosses.length/16;i++){
@@ -186,13 +191,14 @@ export default {
         let url ="/translate?locations="+points+"&type=1&key=3L3BZ-GGLKU-4VLVX-4GQ7S-HVZOT-YNFF7"
 
         corsHttp.get(url).then(res=>{
-          for (let j=0;j<16;j++){
-            this.crosses[(i-1)*16+j].latitude = res.data.locations[j].lat
-            this.crosses[(i-1)*16+j].longtitude = res.data.locations[j].lng
-            this.drawMarker(this.crosses[(i-1)*16+j].latitude,this.crosses[(i-1)*16+j].longtitude,this.crosses[(i-1)*16+j].type,this.crosses[(i-1)*16+j].id)
-            tempCrosses.push(this.crosses[(i-1)*16+j])
-          }
-
+            if(res.data.status == 0){
+                for (let j=0;j<16;j++){
+                    this.crosses[(i-1)*16+j].longtitude = res.data.locations[j].lng
+                    this.crosses[(i-1)*16+j].latitude = res.data.locations[j].lat
+                    this.drawMarker(this.crosses[(i-1)*16+j].latitude,this.crosses[(i-1)*16+j].longtitude,this.crosses[(i-1)*16+j].type,this.crosses[(i-1)*16+j].id)
+                    tempCrosses.push(this.crosses[(i-1)*16+j])
+                }
+            }
         }).then(()=>this.drawLine(tempCrosses))
 
 
@@ -275,5 +281,17 @@ export default {
 </script>
 
 <style scoped>
+    * {
+        font-size: .14rem;
+        margin:0;
+        padding:0;
+        box-sizing: border-box;
+    }
 
+    #mapContainer {
+        width: 8rem;
+        height: 5rem;
+        box-shadow: .1rem .1rem  .1rem slateblue;
+        margin:.2rem 0 0 0 ;
+    }
 </style>

@@ -37,6 +37,10 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
+      path:'/', // 设置页面打开时的默认路由
+      component: ProjectManagement,
+    },
+    {
       path: '/ProjectManagement',
       name: 'ProjectManagement',
       component: ProjectManagement,
@@ -44,7 +48,7 @@ export default new Router({
         path: '/ProjectCreation',
         name: 'ProjectCreation',
         component: ProjectCreation,
-      },
+        },
         {
           path: '/ProjectOpen',
           name: 'ProjectOpen',

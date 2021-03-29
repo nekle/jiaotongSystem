@@ -68,15 +68,17 @@ export default {
 
 <style scoped>
     #ContainerBox {
-        width: 320px;
+        width: 3.2rem;
         display: flex;
         flex-direction: column;
     }
     #PointList {
-        width:  320px;
-        height: 600px;
+        width:  3.2rem;
+        height: 6rem;
         background-color: white;
         overflow-y: scroll;
     }
-
+    #PointList li{
+        list-style: none;
+    }
 </style>

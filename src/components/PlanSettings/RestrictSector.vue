@@ -34,6 +34,12 @@ export default {
 </script>
 
 <style scoped>
+    * {
+        font-size: .14rem;
+        margin:0;
+        padding:0;
+        box-sizing: border-box;
+    }
     #ContainerBox {
         width: 320px;
         display: flex;

@@ -1,6 +1,6 @@
 <template>
     <div id="Container" @click="click($event)" @mouseleave="leave($event)" v-bind:class="[{active:isActive}]">
-        <span>节点</span>
+        <span style="color: #4cb0f9;font-size: 0.2rem;">节点</span>
         <div class="itemBox"><span>名称：</span><input v-on:input="change()"  type="text" class="inputBox" :value="name"></div>
         <div class="itemBox"><span>总人数：</span><input v-on:input="change()" type="text" class="inputBox" :value="passengerSum"></div>
         <div class="itemBox"><span>小汽车数:</span><input v-on:input="change()" type="text" class="inputBox" :value="carSum"></div>
@@ -9,7 +9,6 @@
         <div class="itemBox"><span>乘公车人数：</span><input v-on:input="change()" type="text" class="inputBox" readonly="readonly" :value="publicSum"></div>
     </div>
 </template>
-
 <script>
 export default {
   name: 'ResidentNode',
@@ -48,12 +47,15 @@ export default {
 </script>
 
 <style scoped>
+    * {
+        font-size: .14rem;
+    }
     #Container {
         display: flex;
         flex-direction: column;
-        height: 188px;
-        border: 1px solid black;
-        margin-top: 5px;
+        height: 2.08rem;
+        border: .01rem solid black;
+        margin-top: .05rem;
     }
     .active {
         background-color: lightcyan;
@@ -62,16 +64,23 @@ export default {
         background-color: white;
     }
     .inputBox {
-        width: 150px;
-        height: 20px;
-        margin-top: 2px;
+        width: 1.5rem;
+        height: .2rem;
+        margin-top: .02rem;
     }
     span {
         display: inline-block;
-        width: 100px;
-        height: 20px;
+        width: 1rem;
+        height: .2rem;
+        /*font-size: .1rem;*/
     }
     .itemBox {
-        width: 280px;
+        width: 2.8rem;
+        height: 2.1rem;
+    }
+    .itemBox span {
+        width: 1rem;
+        height: .2rem;
+        /*font-size: .14rem;*/
     }
 </style>

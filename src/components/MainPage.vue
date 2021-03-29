@@ -33,6 +33,7 @@ export default {
         border: 0;
         box-sizing: border-box;
         font-family: Helvetica;
+        font-size: .14rem;
     }
     #navigation {
         background-color: gray;

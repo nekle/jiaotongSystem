@@ -27,6 +27,14 @@ export default {
 </script>
 
 <style scoped>
+    * {
+        font-size: .14rem;
+        margin:0;
+        padding:0;
+        box-sizing: border-box;
+        font-family: "Helvetica";
+        text-decoration: none;
+    }
     #Main {
         background-color: white;
         width: 100%;

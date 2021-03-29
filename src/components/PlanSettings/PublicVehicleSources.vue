@@ -65,14 +65,23 @@ export default {
 </script>
 
 <style scoped>
+    * {
+        font-size: .14rem;
+        margin:0;
+        padding:0;
+        box-sizing: border-box;
+    }
+    li {
+        list-style: none;
+    }
     #ContainerBox {
-        width: 320px;
+        width: 3.2rem;
         display: flex;
         flex-direction: column;
     }
     .PointList {
-        width:  320px;
-        height: 600px;
+        width:  3.2rem;
+        height: 6rem;
         background-color: white;
         overflow-y: scroll;
     }

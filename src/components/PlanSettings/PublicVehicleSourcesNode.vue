@@ -44,12 +44,19 @@ export default {
 </script>
 
 <style scoped>
+    * {
+        font-size: .14rem;
+        margin:0;
+        padding:0;
+        box-sizing: border-box;
+    }
     #Container {
         display: flex;
         flex-direction: column;
-        height: 188px;
-        border: 1px solid black;
-        margin-top: 5px;
+        height: 1.8rem;
+        width: 3rem;
+        border: .01rem solid black;
+        margin-top: .05rem;
     }
     .active {
         background-color: lightcyan;
@@ -57,17 +64,28 @@ export default {
     .leave {
         background-color: white;
     }
-    .inputBox {
-        width: 150px;
-        height: 20px;
-        margin-top: 2px;
-    }
+
     span {
         display: inline-block;
-        width: 100px;
-        height: 20px;
+        width: 1.2rem;
+        height: .2rem;
     }
     .itemBox {
-        width: 280px;
+        width: 3.0rem;
     }
+    .itemBox span {
+        display: inline-block;
+        width: 1.2rem;
+        height: .2rem;
+    }
+
+    .inputBox {
+        display: inline-block;
+        width: 1.5rem;
+        height: .2rem;
+        margin: 0;
+        padding: 0;
+    }
+
+
 </style>
