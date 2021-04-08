@@ -23,12 +23,12 @@ export class MyMarker {
     this._latitude = value;
   }
 
-  get longtitude () {
-    return this._longtitude;
+  get longitude () {
+    return this._longitude;
   }
 
-  set longtitude (value) {
-    this._longtitude = value;
+  set longitude (value) {
+    this._longitude = value;
   }
 
   get type () {
@@ -102,11 +102,11 @@ export class MyMarker {
   set capacity (value) {
     this._capacity = value;
   }
-  constructor (id,name,latitude,longtitude,type,car_sum,car_start_time,car_start_interval,passenger_sum,car_passenger_sum,truck_sum,motor_sum,capacity) {
+  constructor (id,name,longitude,latitude,type,car_sum,car_start_time,car_start_interval,passenger_sum,car_passenger_sum,truck_sum,motor_sum,capacity) {
     this._id = id;
     this._name = name;
+    this._longitude = longitude;
     this._latitude = latitude;
-    this._longtitude = longtitude;
     this._type = type;
     this._car_sum = car_sum;
     this._car_start_time = car_start_time;

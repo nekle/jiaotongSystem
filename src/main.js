@@ -3,19 +3,25 @@ import App from './App.vue'
 import router from './router'
 // 引入按钮样式
 import '@/assets/Button.css'
-Vue.config.productionTip = false
-import L from "leaflet";
-import "leaflet/dist/leaflet.css";
-import Vuex from 'vuex'
-//引入elementui
-import ElementUI from 'element-ui'
-Vue.use(ElementUI)
 
-Vue.use(Vuex)
-Vue.use(L);
+Vue.config.productionTip = false
+// 引入elementui
+import ElementUI from 'element-ui'
+// 引入自定义vue主题
+import '../static/css/theme/index.css';
+// 将自动注册所有组件为全局组件
+import dataV from '@jiaminghi/data-view'
+// 引入vuex
+import store from "@/store/store";
+
+Vue.use(ElementUI)
+Vue.use(dataV)
+
+
 new Vue({
-  render: h => h(App),
-  router,
+    store,
+    render: h => h(App),
+    router,
 }).$mount('#app')
 
 

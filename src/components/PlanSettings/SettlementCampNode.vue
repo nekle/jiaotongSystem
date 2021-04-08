@@ -9,7 +9,7 @@
 
 <script>
 export default {
-  name: 'RestrictSectorNode',
+  name: 'SettlementCampNode',
   props:{
     name:String,
     capacity:Number,

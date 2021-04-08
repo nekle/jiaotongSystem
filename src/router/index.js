@@ -6,6 +6,8 @@ import ProjectManagement from '@/components/ProjectManagement/ProjectManagement'
 import ProjectCreation from '@/components/ProjectManagement/ProjectCreation';
 import ProjectOpen from '@/components/ProjectManagement/ProjectOpen';
 import ProjectClose from '@/components/ProjectManagement/ProjectClose';
+// 路由懒加载
+const OpenedProject = () => import(/* webpackChunkName: "opened-project" */ '../components/ProjectManagement/OpenedProject')
 
 // 引入路网编辑的子组件
 import NetEdition from '@/components/NetEdition/NetEdition';
@@ -20,106 +22,145 @@ import RestrictSector from '@/components/PlanSettings/RestrictSector';
 import SettlementCamp from '@/components/PlanSettings/SettlementCamp';
 import OtherSettings from '@/components/PlanSettings/OtherSettings';
 // 引入仿真运行的子组件
-import SimRunning from '@/components/SimRunning/SimRunning';
+import PredictionRunning from '@/components/PredictionRunning/PredictionRunning';
+import SimRunning from '@/components/PredictionRunning/sim-running'
 // 引入帮助的子组件
 import Help from '@/components/Help/Help';
-
 
 
 // 解决ElementUI导航栏中的vue-router在3.0版本以上重复点菜单报错问题
 const originalPush = Router.prototype.push
 Router.prototype.push = function push(location) {
-  return originalPush.call(this, location).catch(err => err)
+    return originalPush.call(this, location).catch(err => err)
 }
 
 Vue.use(Router)
 
+
 export default new Router({
-  routes: [
-    {
-      path:'/', // 设置页面打开时的默认路由
-      component: ProjectManagement,
-    },
-    {
-      path: '/ProjectManagement',
-      name: 'ProjectManagement',
-      component: ProjectManagement,
-      children:[{
-        path: '/ProjectCreation',
-        name: 'ProjectCreation',
-        component: ProjectCreation,
+    routes: [
+        {
+            path: '/', // 设置页面打开时的默认路由
+            component: ProjectManagement,
+            meta: {
+                title: '入口界面',
+                keepAlive: false
+            },
         },
         {
-          path: '/ProjectOpen',
-          name: 'ProjectOpen',
-          component: ProjectOpen,
+            path: '/ProjectManagement',
+            name: 'ProjectManagement',
+            component: ProjectManagement,
+            meta: {
+                title: '项目管理',
+                keepAlive: false
+            },
+            children: [
+                {
+                    path: 'ProjectCreation',
+                    name: 'ProjectCreation',
+                    component: ProjectCreation,
+                },
+                {
+                    path: 'ProjectOpen',
+                    name: 'ProjectOpen',
+                    component: ProjectOpen,
+                },
+                {
+                    path: 'ProjectClose',
+                    name: 'ProjectClose',
+                    component: ProjectClose,
+                },
+                {
+                    path: 'OpenedProject',
+                    name: 'OpenedProject',
+                    component: OpenedProject,
+                }
+            ]
         },
         {
-          path: '/ProjectClose',
-          name: 'ProjectClose',
-          component: ProjectClose,
+            path: '/NetEdition',
+            name: 'NetEdition',
+            component: NetEdition,
+            meta: {
+                title: '路网编辑',
+                keepAlive: false
+            },
+            children: [
+                {
+                    path: 'VarEdition',
+                    name: 'VarEdition',
+                    component: VarEdition,
+                },
+                {
+                    path: 'VarDisplay',
+                    name: 'VarDisplay',
+                    component: VarDisplay,
+                }
+            ]
         },
-      ]
-    },
-    {
-      path: '/NetEdition',
-      name: 'NetEdition',
-      component: NetEdition,
-      children:[
         {
-        path: '/VarEdition',
-        name: 'VarEdition',
-        component: VarEdition,
-       },
+            path: '/PlanSettings',
+            name: 'PlanSettings',
+            component: PlanSettings,
+            meta: {
+                title: '方案设置',
+            },
+            children: [
+                {
+                    path: 'ResidentPoints',
+                    name: 'ResidentPoints',
+                    component: ResidentPoints,
+                },
+                {
+                    path: 'PublicVehicleSources',
+                    name: 'PublicVehicleSources',
+                    component: PublicVehicleSources
+                },
+                {
+                    path: 'RestrictSector',
+                    name: 'RestrictSector',
+                    component: RestrictSector
+                },
+                {
+                    path: 'SettlementCamp',
+                    name: 'SettlementCamp',
+                    component: SettlementCamp
+                },
+                {
+                    path: 'OtherSettings',
+                    name: 'OtherSettings',
+                    component: OtherSettings
+                }
+            ]
+        },
         {
-          path: '/VarDisplay',
-          name: 'VarDisplay',
-          component: VarDisplay,
+            path: '/PredictionRunning',
+            name: 'PredictionRunning',
+            component: PredictionRunning,
+            meta: {
+                title: '预测执行',
+            },
+            children: [
+                {
+                    path: 'SimRunning',
+                    name: 'SimRunning',
+                    component: SimRunning,
+                    meta: {
+                        title: '启动仿真',
+                        keepAlive: false
+                    }
+                }
+            ]
         }
-      ]
-    },
-    {
-      path: '/PlanSettings',
-      name: 'PlanSettings',
-      component: PlanSettings,
-      children: [
+        ,
         {
-          path: '/ResidentPoints',
-          name: 'ResidentPoints',
-          component: ResidentPoints,
-        },
-        {
-          path: '/PublicVehicleSources',
-          name: 'PublicVehicleSources',
-          component: PublicVehicleSources
-        },
-        {
-          path: '/RestrictSector',
-          name: 'RestrictSector',
-          component: RestrictSector
-        },
-        {
-          path: '/SettlementCamp',
-          name: 'SettlementCamp',
-          component: SettlementCamp
-        },
-        {
-          path:  '/OtherSettings',
-          name:  'OtherSettings',
-          component: OtherSettings
+            path: '/Help',
+            name: 'Help',
+            component: Help,
+            meta: {
+                title: '帮助'
+            }
         }
-      ]
-    },
-    {
-      path: '/SimRunning',
-      name: 'SimRunning',
-      component: SimRunning
-    }
-    ,
-    {
-      path: '/Help',
-      name: 'Help',
-      component: Help
-    }
-  ]
+    ]
 })
