@@ -1,13 +1,13 @@
 <template>
   <div id="Container">
 
-    <div id="SearchContainer">
-      <button class="button button-glow button-rounded button-royal button-small searchBtn" @click="jumpToSearch('/ProjectManagement/ProjectSearchList')">搜索</button>
-      <div id="InputContainer">
-        <input type="text" placeholder="请输入项目名称" v-model="searchCondition" class="InputBox">
-        <span @click="clearSearch" id="clearSpan">x</span>
-      </div>
-    </div>
+        <div id="SearchContainer">
+          <button class="button button-glow button-rounded button-royal button-small searchBtn" @click="searchProject">搜索</button>
+          <div id="InputContainer">
+            <input type="text" placeholder="请输入项目名称" v-model="searchCondition" class="InputBox">
+            <span @click="clearSearch" id="clearSpan">x</span>
+          </div>
+        </div>
 
     <div class="ProjectBox">
       <ProjectInfo
@@ -39,7 +39,7 @@ import myHttp from "../../../static/http";
 import axios from "axios";
 
 export default {
-  name: 'ProjectOpen',
+  name: 'ProjectSeachList',
   components: {
     ProjectInfo
   },
@@ -54,21 +54,8 @@ export default {
       projectSum: 5,
     };
   },
-
+  computed:{},
   methods: {
-    jumpToSearch(path) {
-      //this.$router.push("/cart")
-      //传递的参数用{{ $route.query.goodsId }}获取
-
-      this.$router.push({
-        path: path,
-        query:{
-          searchCondition:this.searchCondition
-        }
-      })
-
-
-    },
     handleSizeChange(val) {
       console.log(`每页 ${val} 条`);
     },
@@ -76,22 +63,36 @@ export default {
       this.getProjectsByPage()
     },
     clearSearch() {
-      this.search = ''
+      this.searchCondition = ''
+    },
+    initSearch(){
+      this.currentPage = 1;
+    },
+    searchProject(){
+
+      // 每次重新搜索前需初始化页码为1
+      this.initSearch()
+      this.getProjectsByPage()
+
     },
     getProjectsByPage() {
 
       let data1 = {
+        "condition":this.searchCondition,
         "currentPage": this.currentPage,
         "pageSize": this.pageSize,
       }
       let data2 = {
+        "condition":this.searchCondition,
         "pageSize": this.pageSize,
       }
-
+      let data3 = {
+        "condition":this.searchCondition,
+      }
       let axioses = []
-      axioses.push(myHttp.get("http://localhost:8086/getProjectsByPage", {params: data1}))
-      axioses.push(myHttp.get("http://localhost:8086/getProjectsPageSum", {params: data2}))
-      axioses.push(myHttp.get("http://localhost:8086/getProjectSum"))
+      axioses.push(myHttp.get("http://localhost:8086/searchProject", {params: data1}))
+      axioses.push(myHttp.get("http://localhost:8086/getSearchProjectPageSum", {params: data2}))
+      axioses.push(myHttp.get("http://localhost:8086/getSearchProjectSum", {params:data3}))
 
       // 并发执行请求
       axios.all(axioses).then((reslist) => {
@@ -106,7 +107,34 @@ export default {
 
   mounted() {
 
-    this.getProjectsByPage()
+    this.searchCondition = this.$route.query.searchCondition
+    console.log(this.$route.query.searchCondition)
+    let data1 = {
+      "condition":this.searchCondition,
+      "currentPage": this.currentPage,
+      "pageSize": this.pageSize,
+    }
+    let data2 = {
+      "condition":this.searchCondition,
+      "pageSize": this.pageSize,
+    }
+    let data3 = {
+      "condition":this.searchCondition,
+    }
+    let axioses = []
+
+    axioses.push(myHttp.get("http://localhost:8086/searchProject", {params: data1}))
+    axioses.push(myHttp.get("http://localhost:8086/getSearchProjectPageSum", {params: data2}))
+    axioses.push(myHttp.get("http://localhost:8086/getSearchProjectSum", {params:data3}))
+
+    // 并发执行请求
+    axios.all(axioses).then((reslist) => {
+      // console.log(reslist)
+      this.projects = reslist[0].data
+      this.pageSum = reslist[1].data
+      this.projectSum = reslist[2].data
+    })
+
 
   }
 }
@@ -159,4 +187,5 @@ export default {
 >>> .el-pagination__total {
   color: white;
 }
+
 </style>

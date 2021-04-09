@@ -2,11 +2,12 @@ import Vue from 'vue'
 import Router from 'vue-router'
 // 引入主页的组件
 // 引入项目管理的子组件
+// 采用路由懒加载
 import ProjectManagement from '@/components/ProjectManagement/ProjectManagement';
 import ProjectCreation from '@/components/ProjectManagement/ProjectCreation';
 import ProjectOpen from '@/components/ProjectManagement/ProjectOpen';
 import ProjectClose from '@/components/ProjectManagement/ProjectClose';
-// 路由懒加载
+const ProjectSearchList = ()=>import(/* webpackChunkName: "project-search-list" */ '../components/ProjectManagement/ProjectSearchList')
 const OpenedProject = () => import(/* webpackChunkName: "opened-project" */ '../components/ProjectManagement/OpenedProject')
 
 // 引入路网编辑的子组件
@@ -75,6 +76,11 @@ export default new Router({
                     path: 'OpenedProject',
                     name: 'OpenedProject',
                     component: OpenedProject,
+                },
+                {
+                    path: 'ProjectSearchList',
+                    name: 'ProjectSearchList',
+                    component: ProjectSearchList
                 }
             ]
         },
